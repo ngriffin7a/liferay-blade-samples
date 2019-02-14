@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jsp:root xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+		  xmlns:jsp="http://java.sun.com/JSP/Page"
+		  xmlns:portlet="http://xmlns.jcp.org/portlet_3_0"
+		  version="2.1">
+	<fmt:setBundle basename="content.portlet1" var="i18n" />
+	<p>
+		<fmt:message bundle="${i18n}" key="thank-you-for-applying-for-a-job-with-our-organization">
+			<fmt:param value="${applicant.firstName}" />
+		</fmt:message>
+	</p>
+	<p>
+		<portlet:renderURL var="submitAnotherRenderURL" />
+		<fmt:message bundle="${i18n}" key="submit-another-application" var="submitAnotherApplication" />
+		<form action="${submitAnotherRenderURL}" method="get">
+			<input class="btn btn-primary" value="${submitAnotherApplication}" type="submit" />
+		</form>
+	</p>
+</jsp:root>

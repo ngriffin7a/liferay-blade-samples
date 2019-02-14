@@ -1,0 +1,109 @@
+/**
+ * Copyright (c) 2000-2018 Liferay, Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.controller;
+
+import java.io.File;
+import java.util.List;
+import java.util.Set;
+
+import javax.inject.Inject;
+import javax.mvc.Controller;
+import javax.mvc.Models;
+import javax.mvc.binding.BindingResult;
+import javax.mvc.binding.ParamError;
+import javax.mvc.security.CsrfProtected;
+import javax.portlet.ActionRequest;
+import javax.portlet.ActionResponse;
+import javax.portlet.PortletSession;
+import javax.portlet.annotations.ActionMethod;
+import javax.portlet.annotations.Namespace;
+import javax.portlet.annotations.PortletRequestScoped;
+import javax.validation.Valid;
+import javax.ws.rs.BeanParam;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.dto.Applicant;
+import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.dto.Attachment;
+
+
+/**
+ * @author  Neil Griffin
+ */
+@Controller
+@PortletRequestScoped
+public class ViewModeActionController {
+
+	private static final Logger logger = LoggerFactory.getLogger(ViewModeActionController.class);
+
+	@Inject
+	@BeanParam
+	@Valid
+	private Applicant applicant;
+
+	@Inject
+	private AttachmentManager attachmentManager;
+
+	@Inject
+	private BindingResult bindingResult;
+
+	@Inject
+	private Models models;
+
+	@Inject
+	@Namespace
+	private CharSequence namespace;
+
+	@ActionMethod(portletName = "portlet1", actionName = "submitApplicant")
+	@CsrfProtected
+	public String submitApplicant(ActionRequest actionRequest, ActionResponse actionResponse) {
+
+		models.put("applicant", applicant);
+
+		Set<ParamError> bindingErrors = bindingResult.getAllErrors();
+
+		if (bindingErrors.isEmpty()) {
+
+			PortletSession portletSession = actionRequest.getPortletSession();
+			List<Attachment> attachments = attachmentManager.getAttachments(portletSession.getId());
+
+			if (logger.isDebugEnabled()) {
+				logger.debug("firstName=" + applicant.getFirstName());
+				logger.debug("lastName=" + applicant.getLastName());
+				logger.debug("emailAddress=" + applicant.getEmailAddress());
+				logger.debug("phoneNumber=" + applicant.getPhoneNumber());
+				logger.debug("dateOfBirth=" + applicant.getDateOfBirth());
+				logger.debug("city=" + applicant.getCity());
+				logger.debug("provinceId=" + applicant.getProvinceId());
+				logger.debug("postalCode=" + applicant.getPostalCode());
+				logger.debug("comments=" + applicant.getComments());
+			}
+
+			for (Attachment attachment : attachments) {
+
+				logger.debug("attachment=[{}]", attachment.getName());
+
+				File file = attachment.getFile();
+				file.delete();
+			}
+
+			return "redirect:confirmation.jspx";
+		}
+
+		return null;
+	}
+}
