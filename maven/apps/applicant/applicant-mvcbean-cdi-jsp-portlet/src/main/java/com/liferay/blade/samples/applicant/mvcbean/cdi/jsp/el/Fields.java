@@ -36,10 +36,10 @@ public class Fields {
 	@Inject
 	private BindingResult bindingResult;
 
-	public String error(String exp) {
+	public String error(String field) {
 
 		StringBuilder sb = new StringBuilder();
-		Collection<String> errors = errors(exp);
+		Collection<String> errors = errors(field);
 
 		boolean first = true;
 
@@ -58,17 +58,15 @@ public class Fields {
 		return sb.toString();
 	}
 
-	public Collection<String> errors(String exp) {
+	public Collection<String> errors(String field) {
 
-		if (exp == null) {
+		if (field == null) {
 			return null;
 		}
 
-		Expression expression = new Expression(exp);
-
 		Set<String> errors = new LinkedHashSet<>();
 
-		Set<ParamError> bindingResultErrors = bindingResult.getErrors(expression.getProperty());
+		Set<ParamError> bindingResultErrors = bindingResult.getErrors(field);
 
 		for (ParamError bindingResultError : bindingResultErrors) {
 			errors.add(bindingResultError.getMessage());
@@ -77,15 +75,13 @@ public class Fields {
 		return errors;
 	}
 
-	public boolean hasErrors(String exp) {
+	public boolean hasErrors(String field) {
 
-		if (exp == null) {
+		if (field == null) {
 			return false;
 		}
 
-		Expression expression = new Expression(exp);
-
-		Set<ParamError> bindingResultErrors = bindingResult.getErrors(expression.getProperty());
+		Set<ParamError> bindingResultErrors = bindingResult.getErrors(field);
 
 		return !bindingResultErrors.isEmpty();
 	}
