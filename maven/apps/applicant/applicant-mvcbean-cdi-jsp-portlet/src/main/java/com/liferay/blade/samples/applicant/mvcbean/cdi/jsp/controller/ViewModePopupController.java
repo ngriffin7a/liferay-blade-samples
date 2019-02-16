@@ -19,6 +19,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
@@ -27,7 +28,6 @@ import javax.mvc.security.CsrfProtected;
 import javax.portlet.ResourceParameters;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
-import javax.portlet.annotations.PortletRequestScoped;
 import javax.portlet.annotations.ServeResourceMethod;
 
 import org.slf4j.Logger;
@@ -37,8 +37,8 @@ import org.slf4j.LoggerFactory;
 /**
  * @author  Neil Griffin
  */
+@ApplicationScoped
 @Controller
-@PortletRequestScoped
 public class ViewModePopupController {
 
 	private static final Logger logger = LoggerFactory.getLogger(ViewModePopupController.class);

@@ -19,6 +19,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Set;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
@@ -29,7 +30,6 @@ import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletSession;
 import javax.portlet.annotations.ActionMethod;
-import javax.portlet.annotations.Namespace;
 import javax.portlet.annotations.PortletRequestScoped;
 import javax.validation.Valid;
 import javax.ws.rs.BeanParam;
@@ -45,7 +45,8 @@ import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.dto.Attachment;
  * @author  Neil Griffin
  */
 @Controller
-@PortletRequestScoped
+@PortletRequestScoped // Injection of the @Dependent pseudo-scoped @BeanPram Applicant requires this controller to be
+					  // @PortletRequestScoped instead of @ApplicationScoped.
 public class ViewModeActionController {
 
 	private static final Logger logger = LoggerFactory.getLogger(ViewModeActionController.class);
@@ -63,10 +64,6 @@ public class ViewModeActionController {
 
 	@Inject
 	private Models models;
-
-	@Inject
-	@Namespace
-	private CharSequence namespace;
 
 	@ActionMethod(portletName = "portlet1", actionName = "submitApplicant")
 	@CsrfProtected

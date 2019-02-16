@@ -29,7 +29,6 @@ import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletSession;
 import javax.portlet.annotations.ActionMethod;
-import javax.portlet.annotations.Namespace;
 import javax.portlet.annotations.PortletRequestScoped;
 import javax.validation.Valid;
 import javax.ws.rs.BeanParam;
@@ -45,7 +44,8 @@ import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.dto.Attachment;
  * @author  Neil Griffin
  */
 @Controller
-@PortletRequestScoped
+@PortletRequestScoped // Injection of the @Dependent pseudo-scoped @BeanPram Applicant requires this controller to be
+					  // @PortletRequestScoped instead of @ApplicationScoped.
 public class ViewModeActionController {
 
 	private static final Logger logger = LoggerFactory.getLogger(ViewModeActionController.class);
@@ -63,10 +63,6 @@ public class ViewModeActionController {
 
 	@Inject
 	private Models models;
-
-	@Inject
-	@Namespace
-	private String namespace;
 
 	@ActionMethod(portletName = "portlet1", actionName = "submitApplicant")
 	@CsrfProtected

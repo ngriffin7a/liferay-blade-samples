@@ -19,6 +19,7 @@ import java.util.Enumeration;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
@@ -33,7 +34,6 @@ import javax.portlet.PortletMode;
 import javax.portlet.PortletPreferences;
 import javax.portlet.WindowState;
 import javax.portlet.annotations.ActionMethod;
-import javax.portlet.annotations.Namespace;
 import javax.portlet.annotations.PortletRequestScoped;
 import javax.validation.constraints.NotBlank;
 import javax.validation.executable.ExecutableType;
@@ -50,7 +50,8 @@ import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.dto.Preferences;
  * @author  Neil Griffin
  */
 @Controller
-@PortletRequestScoped
+@PortletRequestScoped // Injection of the @Dependent pseudo-scoped @FormParam String requires this controller to be
+					  // @PortletRequestScoped instead of @ApplicationScoped.
 @View("edit.jspx")
 public class EditModeActionController {
 
@@ -66,10 +67,6 @@ public class EditModeActionController {
 
 	@Inject
 	private Models models;
-
-	@Inject
-	@Namespace
-	private CharSequence namespace;
 
 	@Inject
 	private PortletConfig portletConfig;

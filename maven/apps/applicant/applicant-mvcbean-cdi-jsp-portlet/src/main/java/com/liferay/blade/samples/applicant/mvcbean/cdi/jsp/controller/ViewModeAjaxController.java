@@ -21,6 +21,7 @@ import java.io.Writer;
 import java.util.Collection;
 import java.util.List;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.security.CsrfProtected;
@@ -28,8 +29,6 @@ import javax.portlet.PortletSession;
 import javax.portlet.ResourceParameters;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
-import javax.portlet.annotations.Namespace;
-import javax.portlet.annotations.PortletRequestScoped;
 import javax.portlet.annotations.ServeResourceMethod;
 import javax.servlet.http.Part;
 import javax.validation.executable.ExecutableType;
@@ -46,8 +45,8 @@ import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.service.CityService;
 /**
  * @author  Neil Griffin
  */
+@ApplicationScoped
 @Controller
-@PortletRequestScoped
 public class ViewModeAjaxController {
 
 	private static final Logger logger = LoggerFactory.getLogger(ViewModeAjaxController.class);
@@ -58,17 +57,13 @@ public class ViewModeAjaxController {
 	@Inject
 	private CityService cityService;
 
-	@Inject
-	@Namespace
-	private CharSequence namespace;
-
 	@CsrfProtected
 	@ServeResourceMethod(portletNames = { "portlet1" }, resourceID = "autoFill")
 	public void autoFill(ResourceRequest resourceRequest, ResourceResponse resourceResponse) {
 
 		ResourceParameters resourceParameters = resourceRequest.getResourceParameters();
 
-		String postalCode = resourceParameters.getValue(namespace + "postalCode");
+		String postalCode = resourceParameters.getValue(resourceResponse.getNamespace() + "postalCode");
 
 		if (postalCode != null) {
 

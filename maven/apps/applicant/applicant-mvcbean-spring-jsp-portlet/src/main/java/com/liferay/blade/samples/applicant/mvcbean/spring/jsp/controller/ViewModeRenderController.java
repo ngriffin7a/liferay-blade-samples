@@ -17,6 +17,7 @@ package com.liferay.blade.samples.applicant.mvcbean.spring.jsp.controller;
 
 import java.util.List;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
@@ -25,8 +26,6 @@ import javax.portlet.PortletPreferences;
 import javax.portlet.PortletSession;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
-import javax.portlet.annotations.Namespace;
-import javax.portlet.annotations.PortletRequestScoped;
 import javax.portlet.annotations.RenderMethod;
 import javax.validation.executable.ExecutableType;
 import javax.validation.executable.ValidateOnExecution;
@@ -39,8 +38,8 @@ import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.service.ProvinceSe
 /**
  * @author  Neil Griffin
  */
+@ApplicationScoped
 @Controller
-@PortletRequestScoped
 public class ViewModeRenderController {
 
 	@Inject
@@ -48,10 +47,6 @@ public class ViewModeRenderController {
 
 	@Inject
 	private Models models;
-
-	@Inject
-	@Namespace
-	private String namespace;
 
 	@Inject
 	private PortletPreferences portletPreferences;
