@@ -23,9 +23,6 @@ import javax.mvc.Controller;
 import javax.mvc.Models;
 import javax.mvc.View;
 import javax.portlet.PortletPreferences;
-import javax.portlet.RenderRequest;
-import javax.portlet.RenderResponse;
-import javax.portlet.annotations.Namespace;
 import javax.portlet.annotations.RenderMethod;
 import javax.validation.executable.ExecutableType;
 import javax.validation.executable.ValidateOnExecution;
@@ -36,16 +33,12 @@ import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.dto.Preferences;
 /**
  * @author  Neil Griffin
  */
-@Controller
 @ApplicationScoped
+@Controller
 public class EditModeRenderController {
 
 	@Inject
 	private Models models;
-
-	@Inject
-	@Namespace
-	private String namespace;
 
 	@Inject
 	private PortletPreferences portletPreferences;
@@ -53,10 +46,7 @@ public class EditModeRenderController {
 	@RenderMethod(portletNames = { "portlet1" }, portletMode = "edit")
 	@ValidateOnExecution(type = ExecutableType.NONE)
 	@View("edit.jspx")
-	public void prepareView(RenderRequest renderRequest, RenderResponse renderResponse) {
-
-		models.put("mainFormActionURL", renderResponse.createActionURL());
-		models.put("namespace", namespace);
+	public void prepareView() {
 
 		Map<String, Object> modelsMap = models.asMap();
 
