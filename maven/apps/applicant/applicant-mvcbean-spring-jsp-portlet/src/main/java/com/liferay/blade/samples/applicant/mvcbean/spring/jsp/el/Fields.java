@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.el;
+package com.liferay.blade.samples.applicant.mvcbean.spring.jsp.el;
 
 import java.util.Collection;
 import java.util.LinkedHashSet;
@@ -24,6 +24,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.mvc.binding.BindingResult;
 import javax.mvc.binding.ParamError;
+import javax.portlet.annotations.PortletRequestScoped;
 
 
 /**
@@ -31,7 +32,7 @@ import javax.mvc.binding.ParamError;
  */
 @Named
 @ApplicationScoped
-public class Binding {
+public class Fields {
 
 	@Inject
 	private BindingResult bindingResult;

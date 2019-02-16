@@ -134,8 +134,8 @@
 										<fmt:message bundle="${i18n}" key="first-name" />
 									</label>
 									<input id="${namespace}firstName" class="form-control" name="${namespace}firstName" type="text" value="${applicant.firstName}"/>
-									<c:if test="${binding.hasErrors('applicant.firstName')}">
-										<span class="portlet-msg-error">${binding.error('applicant.firstName')}</span>
+									<c:if test="${fields.hasErrors('applicant.firstName')}">
+										<span class="portlet-msg-error">${fields.error('applicant.firstName')}</span>
 									</c:if>
 								</div>
 								<div class="form-group">
@@ -143,8 +143,8 @@
 										<fmt:message bundle="${i18n}" key="last-name" />
 									</label>
 									<input id="${namespace}lastName" class="form-control" name="${namespace}lastName" type="text" value="${applicant.lastName}"/>
-									<c:if test="${binding.hasErrors('applicant.lastName')}">
-										<span class="portlet-msg-error">${binding.error('applicant.lastName')}</span>
+									<c:if test="${fields.hasErrors('applicant.lastName')}">
+										<span class="portlet-msg-error">${fields.error('applicant.lastName')}</span>
 									</c:if>
 								</div>
 								<div class="form-group">
@@ -152,8 +152,8 @@
 										<fmt:message bundle="${i18n}" key="email-address" />
 									</label>
 									<input id="${namespace}emailAddress" class="form-control" name="${namespace}emailAddress" type="email" value="${applicant.emailAddress}"/>
-									<c:if test="${binding.hasErrors('applicant.emailAddress')}">
-										<span class="portlet-msg-error">${binding.error('applicant.emailAddress')}</span>
+									<c:if test="${fields.hasErrors('applicant.emailAddress')}">
+										<span class="portlet-msg-error">${fields.error('applicant.emailAddress')}</span>
 									</c:if>
 								</div>
 								<div class="form-group">
@@ -161,8 +161,8 @@
 										<fmt:message bundle="${i18n}" key="phone-number" />
 									</label>
 									<input id="${namespace}phoneNumber" class="form-control" name="${namespace}phoneNumber" type="tel" value="${applicant.phoneNumber}"/>
-									<c:if test="${binding.hasErrors('applicant.phoneNumber')}">
-										<span class="portlet-msg-error">${binding.error('applicant.phoneNumber')}</span>
+									<c:if test="${fields.hasErrors('applicant.phoneNumber')}">
+										<span class="portlet-msg-error">${fields.error('applicant.phoneNumber')}</span>
 									</c:if>
 								</div>
 							</div>
@@ -172,8 +172,8 @@
 										<fmt:message bundle="${i18n}" key="date-of-birth" />
 									</label>
 									<input id="${namespace}dateOfBirth" class="form-control" name="${namespace}dateOfBirth" type="text" value="${converter.convert('applicant.dateOfBirth')}"/>
-									<c:if test="${binding.hasErrors('applicant.dateOfBirth')}">
-										<span class="portlet-msg-error">${binding.error('applicant.dateOfBirth')}</span>
+									<c:if test="${fields.hasErrors('applicant.dateOfBirth')}">
+										<span class="portlet-msg-error">${fields.error('applicant.dateOfBirth')}</span>
 									</c:if>
 								</div>
 								<div class="form-group">
@@ -181,8 +181,8 @@
 										<fmt:message bundle="${i18n}" key="city" />
 									</label>
 									<input id="${namespace}city" class="form-control" name="${namespace}city" type="text" value="${applicant.city}"/>
-									<c:if test="${binding.hasErrors('applicant.city')}">
-										<span class="portlet-msg-error">${binding.error('applicant.city')}</span>
+									<c:if test="${fields.hasErrors('applicant.city')}">
+										<span class="portlet-msg-error">${fields.error('applicant.city')}</span>
 									</c:if>
 								</div>
 								<div class="form-group">
@@ -204,8 +204,8 @@
 										</c:forEach>
 									</select>
 									<fmt:message bundle="${i18n}" key="postal-code-hint" var="postalCodeHint" />
-									<c:if test="${binding.hasErrors('applicant.provinceId')}">
-										<span class="portlet-msg-error">${binding.error('applicant.provinceId')}</span>
+									<c:if test="${fields.hasErrors('applicant.provinceId')}">
+										<span class="portlet-msg-error">${fields.error('applicant.provinceId')}</span>
 									</c:if>
 								</div>
 								<div class="form-group">
@@ -214,8 +214,8 @@
 									</label>
 									<input id="${namespace}postalCode" class="form-control" name="${namespace}postalCode" type="text" value="${applicant.postalCode}"/>
 									<img src="${contextPath}/images/icon-help.png" title="${postalCodeHint}"/>
-									<c:if test="${binding.hasErrors('applicant.postalCode')}">
-										<span class="portlet-msg-error">${binding.error('applicant.postalCode')}</span>
+									<c:if test="${fields.hasErrors('applicant.postalCode')}">
+										<span class="portlet-msg-error">${fields.error('applicant.postalCode')}</span>
 									</c:if>
 								</div>
 							</div>

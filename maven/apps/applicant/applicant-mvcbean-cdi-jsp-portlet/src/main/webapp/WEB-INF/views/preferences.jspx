@@ -14,8 +14,8 @@
 					<fmt:message bundle="${i18n}" key="date-format" />
 				</label>
 				<input id="${namespace}datePattern" class="form-control" name="${namespace}datePattern" value="${preferences.datePattern}"/>
-				<c:if test="${binding.hasErrors('datePattern')}">
-					<span class="portlet-msg-error">${binding.error('datePattern')}</span>
+				<c:if test="${fields.hasErrors('datePattern')}">
+					<span class="portlet-msg-error">${fields.error('datePattern')}</span>
 				</c:if>
 			</div>
 		</fieldset>
