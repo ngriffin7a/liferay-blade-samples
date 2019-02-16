@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.liferay.blade.samples.applicant.mvcbean.spring.jsp.controller;
+package com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.controller;
 
 import java.io.File;
 import java.util.List;
@@ -36,8 +36,8 @@ import javax.ws.rs.BeanParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.dto.Applicant;
-import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.dto.Attachment;
+import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.dto.Applicant;
+import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.dto.Attachment;
 
 
 /**
@@ -46,9 +46,9 @@ import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.dto.Attachment;
 @Controller
 @PortletRequestScoped // Injection of the @Dependent pseudo-scoped @BeanPram Applicant requires this controller to be
 					  // @PortletRequestScoped instead of @ApplicationScoped.
-public class ViewModeActionController {
+public class ApplicantActionController {
 
-	private static final Logger logger = LoggerFactory.getLogger(ViewModeActionController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ApplicantActionController.class);
 
 	@Inject
 	@BeanParam

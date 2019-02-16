@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.liferay.blade.samples.applicant.mvcbean.spring.jsp.controller;
+package com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,9 +37,9 @@ import javax.validation.executable.ValidateOnExecution;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.dto.Attachment;
-import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.dto.City;
-import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.service.CityService;
+import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.dto.Attachment;
+import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.dto.City;
+import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.service.CityService;
 
 
 /**
@@ -47,9 +47,9 @@ import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.service.CityServic
  */
 @ApplicationScoped
 @Controller
-public class ViewModeAjaxController {
+public class ApplicantResourceController {
 
-	private static final Logger logger = LoggerFactory.getLogger(ViewModeAjaxController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ApplicantResourceController.class);
 
 	@Inject
 	private AttachmentManager attachmentManager;

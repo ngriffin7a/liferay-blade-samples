@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.controller;
+package com.liferay.blade.samples.applicant.mvcbean.spring.jsp.controller;
 
 import java.util.Map;
 
@@ -27,7 +27,7 @@ import javax.portlet.annotations.RenderMethod;
 import javax.validation.executable.ExecutableType;
 import javax.validation.executable.ValidateOnExecution;
 
-import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.dto.Preferences;
+import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.dto.Preferences;
 
 
 /**
@@ -35,7 +35,7 @@ import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.dto.Preferences;
  */
 @ApplicationScoped
 @Controller
-public class EditModeRenderController {
+public class PreferencesRenderController {
 
 	@Inject
 	private Models models;
@@ -45,7 +45,7 @@ public class EditModeRenderController {
 
 	@RenderMethod(portletNames = { "portlet1" }, portletMode = "edit")
 	@ValidateOnExecution(type = ExecutableType.NONE)
-	@View("edit.jspx")
+	@View("preferences.jspx")
 	public void prepareView() {
 
 		Map<String, Object> modelsMap = models.asMap();

@@ -15,43 +15,21 @@
  */
 package com.liferay.blade.samples.applicant.mvcbean.spring.jsp.controller;
 
-import java.util.Map;
-
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.mvc.Controller;
-import javax.mvc.Models;
 import javax.mvc.View;
-import javax.portlet.PortletPreferences;
 import javax.portlet.annotations.RenderMethod;
-import javax.validation.executable.ExecutableType;
-import javax.validation.executable.ValidateOnExecution;
-
-import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.dto.Preferences;
 
 
 /**
  * @author  Neil Griffin
  */
 @ApplicationScoped
-@Controller
-public class EditModeRenderController {
+public class HelpRenderController {
 
-	@Inject
-	private Models models;
-
-	@Inject
-	private PortletPreferences portletPreferences;
-
-	@RenderMethod(portletNames = { "portlet1" }, portletMode = "edit")
-	@ValidateOnExecution(type = ExecutableType.NONE)
-	@View("edit.jspx")
-	public void prepareView() {
-
-		Map<String, Object> modelsMap = models.asMap();
-
-		if (!modelsMap.containsKey("preferences")) {
-			models.put("preferences", new Preferences(portletPreferences.getValue("datePattern", null)));
-		}
+	@Controller
+	@RenderMethod(portletNames = { "portlet1" }, portletMode = "help")
+	@View("help.jspx")
+	public void renderHelpMode() {
 	}
 }

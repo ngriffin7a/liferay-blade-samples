@@ -13,11 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.liferay.blade.samples.applicant.mvcbean.spring.jsp.controller;
+package com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.controller;
 
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.spi.BeanManager;
+import javax.enterprise.inject.spi.CDI;
 import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
@@ -30,9 +32,9 @@ import javax.portlet.annotations.RenderMethod;
 import javax.validation.executable.ExecutableType;
 import javax.validation.executable.ValidateOnExecution;
 
-import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.dto.Applicant;
-import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.dto.Attachment;
-import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.service.ProvinceService;
+import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.dto.Applicant;
+import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.dto.Attachment;
+import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.service.ProvinceService;
 
 
 /**
@@ -40,7 +42,7 @@ import com.liferay.blade.samples.applicant.mvcbean.spring.jsp.service.ProvinceSe
  */
 @ApplicationScoped
 @Controller
-public class ViewModeRenderController {
+public class ApplicantRenderController {
 
 	@Inject
 	private AttachmentManager attachmentManager;
@@ -84,8 +86,11 @@ public class ViewModeRenderController {
 
 			models.put("provinces", provinceService.getAllProvinces());
 
-			models.put("springFrameworkVersion",
-				_getPackageVersion("org.springframework.web.server", "org.springframework.ui"));
+			CDI<Object> currentCDI = CDI.current();
+			BeanManager beanManager = currentCDI.getBeanManager();
+			Class<? extends BeanManager> beanManagerClass = beanManager.getClass();
+			Package beanManagerPackage = beanManagerClass.getPackage();
+			models.put("weldVersion", beanManagerPackage.getImplementationVersion());
 		}
 
 		return viewName;
@@ -105,24 +110,5 @@ public class ViewModeRenderController {
 		jQueryDatePattern = jQueryDatePattern.replaceAll("M", "m");
 
 		return jQueryDatePattern;
-	}
-
-	private String _getPackageVersion(String... packageNames) {
-
-		Package pkg = null;
-
-		for (String packageName : packageNames) {
-			pkg = Package.getPackage(packageName);
-
-			if (pkg != null) {
-				break;
-			}
-		}
-
-		if (pkg == null) {
-			return "(Not Present)";
-		}
-
-		return pkg.getImplementationVersion();
 	}
 }

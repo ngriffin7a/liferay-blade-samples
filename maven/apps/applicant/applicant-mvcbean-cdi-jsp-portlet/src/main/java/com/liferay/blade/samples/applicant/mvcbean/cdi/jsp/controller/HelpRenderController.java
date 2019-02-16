@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.liferay.blade.samples.applicant.mvcbean.spring.jsp.controller;
+package com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.controller;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.mvc.Controller;
@@ -25,7 +25,7 @@ import javax.portlet.annotations.RenderMethod;
  * @author  Neil Griffin
  */
 @ApplicationScoped
-public class HelpModeRenderController {
+public class HelpRenderController {
 
 	@Controller
 	@RenderMethod(portletNames = { "portlet1" }, portletMode = "help")

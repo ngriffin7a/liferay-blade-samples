@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.controller;
+package com.liferay.blade.samples.applicant.mvcbean.spring.jsp.controller;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -39,9 +39,9 @@ import org.slf4j.LoggerFactory;
  */
 @ApplicationScoped
 @Controller
-public class ViewModePopupController {
+public class TermsResourceController {
 
-	private static final Logger logger = LoggerFactory.getLogger(ViewModePopupController.class);
+	private static final Logger logger = LoggerFactory.getLogger(TermsResourceController.class);
 
 	@Inject
 	private Models models;
