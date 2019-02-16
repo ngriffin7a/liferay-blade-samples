@@ -25,6 +25,7 @@ import javax.mvc.Models;
 import javax.mvc.View;
 import javax.mvc.binding.BindingResult;
 import javax.mvc.binding.ParamError;
+import javax.mvc.security.CsrfProtected;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletConfig;
@@ -78,6 +79,7 @@ public class EditModeActionController {
 
 	@ActionMethod(portletName = "portlet1", actionName = "reset")
 	@ValidateOnExecution(type = ExecutableType.NONE)
+	@CsrfProtected
 	public void resetPreferences(ActionRequest actionRequest, ActionResponse actionResponse) {
 
 		ResourceBundle resourceBundle = portletConfig.getResourceBundle(actionRequest.getLocale());
@@ -108,6 +110,7 @@ public class EditModeActionController {
 	}
 
 	@ActionMethod(portletName = "portlet1", actionName = "submitPreferences")
+	@CsrfProtected
 	public void submitPreferences(ActionRequest actionRequest, ActionResponse actionResponse) {
 
 		ResourceBundle resourceBundle = portletConfig.getResourceBundle(actionRequest.getLocale());

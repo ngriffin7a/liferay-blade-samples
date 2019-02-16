@@ -26,7 +26,7 @@ public class Attachment implements Serializable {
 
 	private static final long serialVersionUID = 1572382923498234661L;
 
-	private File file;
+	private final File file;
 
 	public Attachment(File file) {
 		this.file = file;

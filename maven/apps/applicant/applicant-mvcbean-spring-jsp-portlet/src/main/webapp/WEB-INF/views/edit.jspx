@@ -20,6 +20,7 @@
 			</div>
 		</fieldset>
 		<hr />
+		<input name="${mvc.csrf.name}" value="${mvc.csrf.token}" type="hidden"/>
 		<button class="btn btn-primary" name="${namespace}javax.portlet.action" value="submitPreferences" type="submit">
 			<fmt:message bundle="${i18n}" key="submit" />
 		</button>

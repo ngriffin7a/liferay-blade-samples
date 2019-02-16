@@ -16,6 +16,7 @@
 package com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.service.mock;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -39,12 +40,8 @@ public class CityServiceMockImpl implements CityService {
 	// Private Data Members
 	private List<City> cities;
 
-	public List<City> getCities() {
-		return cities;
-	}
-
+	@Override
 	public City getCityByPostalCode(String postalCode) {
-		List<City> cities = getCities();
 
 		for (City city : cities) {
 
@@ -80,5 +77,6 @@ public class CityServiceMockImpl implements CityService {
 		cities.add(city);
 		city = new City(cityId++, provinceService.getProvinceId("VA"), "Roanoke", "24013");
 		cities.add(city);
+		cities = Collections.unmodifiableList(cities);
 	}
 }

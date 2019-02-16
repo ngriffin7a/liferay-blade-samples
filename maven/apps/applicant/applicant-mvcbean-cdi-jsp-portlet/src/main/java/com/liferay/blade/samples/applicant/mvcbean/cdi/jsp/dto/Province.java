@@ -19,7 +19,7 @@ import java.io.Serializable;
 
 
 /**
- * This is a bean that represents a Province, and implements the Transfer Object (formerly known as ValueObject/VO)
+ * This is a bean that represents a Province and implements the Transfer Object (formerly known as ValueObject/VO)
  * design pattern.
  *
  * @author  "Neil Griffin"
@@ -30,8 +30,8 @@ public class Province implements Serializable {
 	private static final long serialVersionUID = 2342374742262228819L;
 
 	// JavaBean Properties
-	private long provinceId;
-	private String provinceName;
+	private final long provinceId;
+	private final String provinceName;
 
 	public Province(long provinceId, String provinceName) {
 		this.provinceId = provinceId;

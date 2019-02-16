@@ -16,6 +16,7 @@
 package com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.service.mock;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -79,5 +80,6 @@ public class ProvinceServiceMockImpl implements ProvinceService {
 		provinces.add(province);
 		province = new Province(provinceId++, "VA");
 		provinces.add(province);
+		provinces = Collections.unmodifiableList(provinces);
 	}
 }

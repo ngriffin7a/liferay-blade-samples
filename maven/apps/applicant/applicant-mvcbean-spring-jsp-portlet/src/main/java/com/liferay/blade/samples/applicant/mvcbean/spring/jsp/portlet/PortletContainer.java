@@ -26,7 +26,7 @@ public enum PortletContainer {
 
 	LIFERAY("com.liferay"), PLUTO("org.apache.pluto"), WEBSPHERE("com.ibm");
 
-	private String fqcnPrefix;
+	private final String fqcnPrefix;
 
 	PortletContainer(String fqcnPrefix) {
 		this.fqcnPrefix = fqcnPrefix;

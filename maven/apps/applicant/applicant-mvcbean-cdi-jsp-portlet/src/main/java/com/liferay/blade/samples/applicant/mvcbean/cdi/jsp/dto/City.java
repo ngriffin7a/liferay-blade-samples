@@ -19,7 +19,7 @@ import java.io.Serializable;
 
 
 /**
- * This is a bean that represents a City, and implements the Transfer Object (formerly known as ValueObject/VO) design
+ * This is a bean that represents a City and implements the Transfer Object (formerly known as ValueObject/VO) design
  * pattern.
  *
  * @author  "Neil Griffin"
@@ -30,10 +30,10 @@ public class City implements Serializable {
 	private static final long serialVersionUID = 3312342177113327761L;
 
 	// JavaBean Properties
-	private long cityId;
-	private String cityName;
-	private String postalCode;
-	private long provinceId;
+	private final long cityId;
+	private final String cityName;
+	private final String postalCode;
+	private final long provinceId;
 
 	public City(long cityId, long provinceId, String cityName, String postalCode) {
 		this.cityId = cityId;

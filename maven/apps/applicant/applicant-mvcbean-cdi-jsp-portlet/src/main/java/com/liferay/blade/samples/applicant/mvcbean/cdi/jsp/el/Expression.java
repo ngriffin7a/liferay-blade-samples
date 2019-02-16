@@ -18,16 +18,17 @@ package com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.el;
 /**
  * @author  Neil Griffin
  */
-public class Expression {
+class Expression {
 
-	private String base;
-	private String property;
+	private final String base;
+	private final String property;
 
 	public Expression(String expression) {
 
 		int pos = expression.indexOf(".");
 
 		if (pos < 0) {
+			base = null;
 			property = expression;
 		}
 		else {
