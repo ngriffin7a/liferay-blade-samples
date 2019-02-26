@@ -292,8 +292,8 @@
 	<ul>
 		<li>Spring Framework ${springFrameworkVersion}</li>
 	</ul>
-	<portlet:resourceURL id="viewTerms" var="termsResourceURL"/>
-	<a href="${termsResourceURL}" style="float:right;" target="_blank">
+	<portlet:resourceURL id="viewTerms" var="viewTermsResourceURL"/>
+	<a href="${viewTermsResourceURL}" style="float:right;" target="_blank">
 		<fmt:message bundle="${i18n}" key="terms-of-service" />
 	</a>
 </jsp:root>

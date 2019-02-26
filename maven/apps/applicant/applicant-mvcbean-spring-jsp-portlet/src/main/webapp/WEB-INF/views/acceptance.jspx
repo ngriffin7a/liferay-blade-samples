@@ -12,8 +12,8 @@
 			<p>
 				<fmt:message bundle="${i18n}" key="thank-you-for-accepting-our-terms-of-service"/>
 			</p>
-			<portlet:resourceURL id="viewTermsAgain" var="termsResourceURL"/>
-			<a href="${termsResourceURL}">
+			<portlet:resourceURL id="viewTermsAgain" var="viewTermsAgainResourceURL"/>
+			<a href="${viewTermsAgainResourceURL}">
 				<fmt:message bundle="${i18n}" key="back-to-terms-of-service" />
 			</a>
 		</body>
