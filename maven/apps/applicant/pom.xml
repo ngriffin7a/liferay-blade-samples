@@ -10,11 +10,14 @@
 
 	<modules>
 		<module>applicant-mvcbean-cdi-jsp-portlet</module>
+		<module>applicant-mvcbean-cdi-thymeleaf-portlet</module>
 		<module>applicant-mvcbean-spring-jsp-portlet</module>
+		<module>applicant-mvcbean-spring-thymeleaf-portlet</module>
 	</modules>
 
 	<properties>
 		<hibernate.version>6.0.14.Final</hibernate.version>
+		<pluto.version>3.0.2-SNAPSHOT</pluto.version>
 		<thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
 		<spring.framework.scope>compile</spring.framework.scope>
 		<!--
@@ -44,23 +47,11 @@
 				<artifactId>com.liferay.bean.portlet.spring.extension</artifactId>
 				<version>2.0.0</version>
 			</dependency>
-			<!--
 			<dependency>
 				<groupId>com.liferay.spring</groupId>
-				<artifactId>spring-portlet</artifactId>
-				<version>5.0.0</version>
+				<artifactId>portletmvc4spring</artifactId>
+				<version>5.1.0</version>
 			</dependency>
-			<dependency>
-				<groupId>com.liferay.spring</groupId>
-				<artifactId>spring-webmvc-portlet</artifactId>
-				<version>5.0.0</version>
-			</dependency>
-			<dependency>
-				<groupId>com.liferay.thymeleaf</groupId>
-				<artifactId>thymeleaf-spring5-portlet</artifactId>
-				<version>${thymeleaf.version}</version>
-			</dependency>
-			-->
 			<dependency>
 				<groupId>javax.mvc</groupId>
 				<artifactId>javax.mvc-api</artifactId>
@@ -85,6 +76,16 @@
 				<groupId>javax.ws.rs</groupId>
 				<artifactId>javax.ws.rs-api</artifactId>
 				<version>2.1.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.portals.pluto</groupId>
+				<artifactId>thymeleaf-mvc-portlet-cdi</artifactId>
+				<version>${pluto.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.portals.pluto</groupId>
+				<artifactId>thymeleaf-mvc-portlet-spring</artifactId>
+				<version>${pluto.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.hibernate</groupId>
@@ -141,7 +142,6 @@
 				<artifactId>spring-webmvc</artifactId>
 				<version>${spring.framework.version}</version>
 			</dependency>
-			<!--
 			<dependency>
 				<groupId>org.thymeleaf</groupId>
 				<artifactId>thymeleaf</artifactId>
@@ -152,7 +152,6 @@
 				<artifactId>thymeleaf-spring5</artifactId>
 				<version>${thymeleaf.version}</version>
 			</dependency>
-			-->
 		</dependencies>
 	</dependencyManagement>
 
