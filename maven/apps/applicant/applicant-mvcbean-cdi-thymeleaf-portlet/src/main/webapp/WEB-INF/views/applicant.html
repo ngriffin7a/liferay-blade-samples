@@ -158,8 +158,8 @@
 								<div class="form-group">
 									<label th:for="|${namespace}provinceId|" th:text="#{state-province}"/>
 									<select th:id="|${namespace}provinceId|" class="form-control" th:name="|${namespace}provinceId|" th:value="*{provinceId}">
-										<option th:label="#{select}" value=""/>
-										<option th:each="province: ${provinces}" th:label="${province.provinceName}" th:selected="(${province.provinceId} == *{provinceId})" th:value="${province.provinceId}"/>
+										<option th:text="#{select}" value=""/>
+										<option th:each="province: ${provinces}" th:text="${province.provinceName}" th:selected="(${province.provinceId} == *{provinceId})" th:value="${province.provinceId}"/>
 									</select>
 									<span class="portlet-msg-error" th:if="${fields.hasErrors('provinceId')}" th:text="${fields.error('provinceId')}"/>
 								</div>
