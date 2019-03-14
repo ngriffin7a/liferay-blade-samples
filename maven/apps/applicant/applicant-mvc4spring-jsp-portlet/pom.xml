@@ -57,8 +57,8 @@
 			<id>pluto</id>
 			<dependencies>
 				<dependency>
-					<groupId>org.glassfish.web</groupId>
-					<artifactId>jstl-impl</artifactId>
+					<groupId>org.apache.taglibs</groupId>
+					<artifactId>taglibs-standard-jstlel</artifactId>
 				</dependency>
 			</dependencies>
 		</profile>

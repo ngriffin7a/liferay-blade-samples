@@ -43,6 +43,17 @@
 		<system>JIRA</system>
 		<url>https://issues.liferay.com/browse/BLADE</url>
 	</issueManagement>
+	<profiles>
+		<profile>
+			<id>pluto</id>
+			<dependencies>
+				<dependency>
+					<groupId>org.apache.taglibs</groupId>
+					<artifactId>taglibs-standard-jstlel</artifactId>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 	<dependencies>
 		<dependency>
 			<groupId>com.liferay</groupId>
