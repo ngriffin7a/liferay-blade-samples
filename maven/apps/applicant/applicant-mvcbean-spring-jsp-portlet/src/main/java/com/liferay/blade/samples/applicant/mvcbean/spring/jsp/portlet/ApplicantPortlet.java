@@ -16,6 +16,7 @@
 package com.liferay.blade.samples.applicant.mvcbean.spring.jsp.portlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.portlet.HeaderPortlet;
@@ -52,6 +53,10 @@ public class ApplicantPortlet implements HeaderPortlet {
 		if (plutoDetected) {
 			headerResponse.addDependency("jQuery", "com.jquery", "1.12.1",
 				"<script src=\"https://code.jquery.com/jquery-1.12.4.js\"></script>");
+			headerResponse.addDependency("Bootstrap", "com.getbootstrap", "4.0.0",
+				"<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\" integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\" crossorigin=\"anonymous\">");
+			PrintWriter writer = headerResponse.getWriter();
+			writer.write("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"></meta>");
 		}
 
 		if (liferayDetected || plutoDetected) {
