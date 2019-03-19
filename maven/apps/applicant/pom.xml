@@ -9,8 +9,6 @@
 	<name>Applicant Samples</name>
 
 	<modules>
-		<module>applicant-mvc4spring-jsp-portlet</module>
-		<module>applicant-mvc4spring-thymeleaf-portlet</module>
 		<module>applicant-mvcbean-cdi-jsp-portlet</module>
 		<module>applicant-mvcbean-cdi-thymeleaf-portlet</module>
 		<module>applicant-mvcbean-spring-jsp-portlet</module>
@@ -102,6 +100,11 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.portals.pluto</groupId>
+				<artifactId>portlet-servlet-adapter</artifactId>
+				<version>${pluto.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.portals.pluto</groupId>
 				<artifactId>thymeleaf-mvc-portlet-cdi</artifactId>
 				<version>${pluto.version}</version>
 			</dependency>
@@ -153,6 +156,16 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-jcl</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-config</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-web</artifactId>
 				<version>${spring.framework.version}</version>
 			</dependency>
 			<dependency>
