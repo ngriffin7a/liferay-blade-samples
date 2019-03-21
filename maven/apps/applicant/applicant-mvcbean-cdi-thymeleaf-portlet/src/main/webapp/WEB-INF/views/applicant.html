@@ -26,8 +26,8 @@
 			$('#[(${namespace})]postalCode').on('change', function submitXHR(){
 				$.ajax({
 					data: {
-						[(${namespace})]postalCode: $(this).val(),
-						[(${mvc.csrf.name})]: '[(${mvc.csrf.token})]'
+						[(${mvc.csrf.name})]: '[(${mvc.csrf.token})]',
+						[(${namespace})]postalCode: $(this).val()
 					},
 					type: 'post',
 					url: '[(${autoFillResourceURL})]'
