@@ -202,14 +202,14 @@
 									</label>
 									<fmt:message bundle="${i18n}" key="select" var="select" />
 									<select id="${namespace}provinceId" class="form-control" name="${namespace}provinceId" value="${applicant.provinceId}">
-										<option label="${select}" value=""/>
+										<option value="">${select}</option>
 										<c:forEach items="${provinces}" var="province">
 											<c:choose>
 												<c:when test="${applicant.provinceId == province.provinceId}">
-													<option label="${province.provinceName}" selected="selected" value="${province.provinceId}"/>
+													<option selected="selected" value="${province.provinceId}">${province.provinceName}</option>
 												</c:when>
 												<c:otherwise>
-													<option label="${province.provinceName}" value="${province.provinceId}"/>
+													<option value="${province.provinceId}">${province.provinceName}</option>
 												</c:otherwise>
 											</c:choose>
 										</c:forEach>
