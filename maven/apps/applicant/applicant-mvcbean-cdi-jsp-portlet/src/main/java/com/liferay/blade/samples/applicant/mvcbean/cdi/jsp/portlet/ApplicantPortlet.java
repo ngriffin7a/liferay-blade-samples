@@ -23,6 +23,7 @@ import javax.portlet.HeaderPortlet;
 import javax.portlet.HeaderRequest;
 import javax.portlet.HeaderResponse;
 import javax.portlet.PortletException;
+import javax.portlet.annotations.HeaderMethod;
 import javax.portlet.annotations.PortletConfiguration;
 import javax.portlet.annotations.Preference;
 import javax.portlet.annotations.Supports;
@@ -44,6 +45,7 @@ import com.liferay.bean.portlet.LiferayPortletConfiguration;
 public class ApplicantPortlet implements HeaderPortlet {
 
 	@Override
+	@HeaderMethod(portletNames = {"portlet1"})
 	public void renderHeaders(HeaderRequest headerRequest, HeaderResponse headerResponse) throws PortletException,
 		IOException {
 
