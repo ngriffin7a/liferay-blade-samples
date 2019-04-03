@@ -3,7 +3,4 @@
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd">
 	<!-- This file is necessary in order to inform CDI that scanning should occur for CDI annotations. -->
-	<alternatives>
-		<class>com.liferay.blade.samples.applicant.mvcbean.cdi.thymeleaf.mvc.PortletMVCWebContextFactory</class>
-	</alternatives>
 </beans>
