@@ -52,6 +52,9 @@ public class TermsResourceController {
 	@CsrfProtected
 	@ServeResourceMethod(portletNames = "portlet1", contentType = "text/html", resourceID = "acceptTerms")
 	public String acceptTerms(ResourceRequest resourceRequest, ResourceResponse resourceResponse) {
+
+		models.put("viewTermsAgainResourceURL", ControllerUtil.createResourceURL(resourceResponse, "viewTermsAgain"));
+
 		return "redirect:acceptance.html";
 	}
 
@@ -67,6 +70,21 @@ public class TermsResourceController {
 	@View("terms.html")
 	public void viewTerms(ResourceRequest resourceRequest, ResourceResponse resourceResponse) {
 
+		_populateViewTermsModel(resourceResponse);
+
+		models.put("acceptTermsResourceURL", ControllerUtil.createResourceURL(resourceResponse, "acceptTerms"));
+	}
+
+	@ServeResourceMethod(portletNames = "portlet1", contentType = "text/html", resourceID = "viewTermsAgain")
+	@View("redirect:terms.html")
+	public void viewTermsAgain(ResourceRequest resourceRequest, ResourceResponse resourceResponse) {
+		logger.debug("Redirecting to Terms of Service");
+
+		_populateViewTermsModel(resourceResponse);
+	}
+
+	private void _populateViewTermsModel(ResourceResponse resourceResponse) {
+
 		DateFormat dateFormat = new SimpleDateFormat("yyyy");
 
 		Calendar todayCalendar = Calendar.getInstance();
@@ -75,12 +93,5 @@ public class TermsResourceController {
 
 		// Thymeleaf
 		models.put("acceptTermsResourceURL", ControllerUtil.createResourceURL(resourceResponse, "acceptTerms"));
-		models.put("viewTermsAgainResourceURL", ControllerUtil.createResourceURL(resourceResponse, "viewTermsAgain"));
-	}
-
-	@ServeResourceMethod(portletNames = "portlet1", contentType = "text/html", resourceID = "viewTermsAgain")
-	@View("redirect:terms.html")
-	public void viewTermsAgain(ResourceRequest resourceRequest, ResourceResponse resourceResponse) {
-		logger.debug("Redirecting to Terms of Service");
 	}
 }

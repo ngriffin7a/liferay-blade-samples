@@ -24,10 +24,10 @@ import javax.portlet.ResourceURL;
  */
 public class ControllerUtil {
 
-	public static ResourceURL createResourceURL(MimeResponse mimeResponse, String resourceID) {
+	public static String createResourceURL(MimeResponse mimeResponse, String resourceID) {
 		ResourceURL resourceURL = mimeResponse.createResourceURL();
 		resourceURL.setResourceID(resourceID);
 
-		return resourceURL;
+		return resourceURL.toString();
 	}
 }
