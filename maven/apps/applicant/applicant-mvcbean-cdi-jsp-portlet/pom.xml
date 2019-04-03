@@ -53,6 +53,25 @@
 				</dependency>
 			</dependencies>
 		</profile>
+		<profile>
+			<id>liferay</id>
+			<dependencies>
+				<dependency>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-validator</artifactId>
+					<exclusions>
+						<exclusion>
+							<groupId>javax.validation</groupId>
+							<artifactId>validation-api</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+				<dependency>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-validator-cdi</artifactId>
+				</dependency>
+			</dependencies>
+		</profile>
 	</profiles>
 	<dependencies>
 		<dependency>
@@ -84,20 +103,6 @@
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
 			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.validation</groupId>
-					<artifactId>validation-api</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator-cdi</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
