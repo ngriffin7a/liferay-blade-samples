@@ -100,7 +100,8 @@ public class ApplicantResourceController {
 
 		ResourceParameters resourceParameters = resourceRequest.getResourceParameters();
 
-		String attachmentIndex = resourceParameters.getValue("attachmentIndex");
+		String attachmentIndex = resourceParameters.getValue(
+			resourceResponse.getNamespace() + "attachmentIndex");
 
 		if (attachmentIndex != null) {
 			Attachment attachment = attachments.remove(Integer.valueOf(attachmentIndex).intValue());
@@ -137,11 +138,18 @@ public class ApplicantResourceController {
 
 				for (Part transientMultipartFile : transientMultipartFiles) {
 
-					File copiedFile = new File(attachmentDir, transientMultipartFile.getSubmittedFileName());
+					String submittedFileName =
+						transientMultipartFile.getSubmittedFileName();
 
-					transientMultipartFile.write(copiedFile.getAbsolutePath());
+					if (submittedFileName != null) {
+						File copiedFile = new File(
+							attachmentDir, submittedFileName);
 
-					attachments.add(new Attachment(copiedFile));
+						transientMultipartFile.write(
+							copiedFile.getAbsolutePath());
+
+						attachments.add(new Attachment(copiedFile));
+					}
 				}
 
 				_writeTabularJSON(resourceResponse.getWriter(), attachments);
