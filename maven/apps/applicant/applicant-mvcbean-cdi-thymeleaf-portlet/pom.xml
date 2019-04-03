@@ -43,6 +43,27 @@
 		<system>JIRA</system>
 		<url>https://issues.liferay.com/browse/BLADE</url>
 	</issueManagement>
+	<profiles>
+		<profile>
+			<id>liferay</id>
+			<dependencies>
+				<dependency>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-validator</artifactId>
+					<exclusions>
+						<exclusion>
+							<groupId>javax.validation</groupId>
+							<artifactId>validation-api</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+				<dependency>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-validator-cdi</artifactId>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 	<dependencies>
 		<dependency>
 			<groupId>com.liferay</groupId>
@@ -77,20 +98,6 @@
 		<dependency>
 			<groupId>org.apache.portals.pluto</groupId>
 			<artifactId>thymeleaf-mvc-portlet-cdi</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.validation</groupId>
-					<artifactId>validation-api</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator-cdi</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
