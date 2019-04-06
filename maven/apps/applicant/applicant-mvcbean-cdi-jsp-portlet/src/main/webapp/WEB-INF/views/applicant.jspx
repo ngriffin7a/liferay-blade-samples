@@ -304,7 +304,7 @@
 		<li>Weld ${weldVersion}</li>
 	</ul>
 	<portlet:resourceURL id="viewTerms" var="viewTermsResourceURL"/>
-	<a href="${viewTermsResourceURL}" style="float:right;" target="_blank">
+	<a href="${viewTermsResourceURL}" style="float:right;line-height:0px;" target="_blank">
 		<fmt:message bundle="${i18n}" key="terms-of-service" />
 	</a>
 </jsp:root>
