@@ -28,7 +28,6 @@ import javax.portlet.PortletPreferences;
 import javax.portlet.PortletSession;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
-import javax.portlet.ResourceURL;
 import javax.portlet.annotations.RenderMethod;
 import javax.validation.executable.ExecutableType;
 import javax.validation.executable.ValidateOnExecution;
