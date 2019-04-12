@@ -48,6 +48,11 @@
 			<id>liferay</id>
 			<dependencies>
 				<dependency>
+					<groupId>com.liferay</groupId>
+					<artifactId>com.liferay.bean.portlet.api</artifactId>
+					<scope>provided</scope>
+				</dependency>
+				<dependency>
 					<groupId>org.hibernate</groupId>
 					<artifactId>hibernate-validator</artifactId>
 					<exclusions>
@@ -65,11 +70,6 @@
 		</profile>
 	</profiles>
 	<dependencies>
-		<dependency>
-			<groupId>com.liferay</groupId>
-			<artifactId>com.liferay.bean.portlet.api</artifactId>
-			<scope>provided</scope>
-		</dependency>
 		<dependency>
 			<groupId>javax.mvc</groupId>
 			<artifactId>javax.mvc-api</artifactId>
