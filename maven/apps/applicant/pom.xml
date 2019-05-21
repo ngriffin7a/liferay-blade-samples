@@ -23,7 +23,7 @@
 		<pluto.version>3.1.0</pluto.version>
 		<thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
 		<spring.framework.scope>compile</spring.framework.scope>
-		<spring.framework.version>5.1.4.RELEASE</spring.framework.version>
+		<spring.framework.version>5.1.5.RELEASE</spring.framework.version>
 	</properties>
 
 	<profiles>
