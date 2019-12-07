@@ -44,7 +44,7 @@ import com.liferay.blade.samples.applicant.mvcbean.cdi.jsp.dto.Attachment;
  * @author  Neil Griffin
  */
 @Controller
-@PortletRequestScoped // Injection of the @Dependent pseudo-scoped @BeanPram Applicant requires this controller to be
+@PortletRequestScoped // Injection of the @Dependent pseudo-scoped @BeanParam Applicant requires this controller to be
 					  // @PortletRequestScoped instead of @ApplicationScoped.
 public class ApplicantActionController {
 
